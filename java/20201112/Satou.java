@@ -1,5 +1,5 @@
 import java.util.*;
-public class Sk{
+public class Satou{
 	public static void main(String[] args){
 		System.out.print("1~10のうち好きな数字を入力してください>");
 		int ScanNum=new Scanner(System.in).nextInt();

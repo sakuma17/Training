@@ -1,5 +1,5 @@
 import java.util.*;
-public class Tt{
+public class Tokuda{
 	public static void main(String[] args){
 		System.out.print("何人ですか>");
 		int num=new Scanner(System.in).nextInt();
