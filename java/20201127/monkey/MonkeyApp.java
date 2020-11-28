@@ -9,21 +9,20 @@ public class MonkeyApp{
 		while(true){
 			System.out.print("おさるに何をさせますか?1…挨拶、2…竹馬、3…逆立ち、4…終了>");
 			int num=new Scanner(System.in).nextInt();
-			if(num==4){
-				break;
-			}
 			switch(num){
 				case 1:
-				m1.greet();
-				break;
+					m1.greet();
+					break;
 				case 2:
-				m1.takeuma();
-				break;
+					m1.takeuma();
+					break;
 				case 3:
-				m1.sakadachi();
-				break;
+					m1.sakadachi();
+					break;
+				default:
+					System.out.println("アプリケーションを終了します。");
+					return;
 			}
 		}
-		System.out.println("アプリケーションを終了します。");
 	}
 }

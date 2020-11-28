@@ -7,27 +7,17 @@ public class PencilApp{
 		while(true){
 			System.out.print("操作を入力してください1…書く,2…情報を見る,3…終了>");
 			int num=new Scanner(System.in).nextInt();
-			if(num==3){
-				break;
-			}
 			switch(num){
 				case 1:
-					if(pen1.penLength==0){
-						System.out.println("もう書けません");
-					}else{
-						System.out.println(pen1.color+"で書いた");
-						pen1.penLength-=1;
-					}
+					pen1.write();
 					break;
 				case 2:
-					System.out.println("色:"+pen1.color);
-					for(int i=0;i<pen1.penLength;i++){
-						System.out.print("+");
-					}
-					System.out.println(">");
+					pen1.status();
 					break;
+				default:
+					System.out.println("アプリケーションを終了します");
+					return;
 			}
 		}
-		System.out.println("アプリケーションを終了します");
 	}
 }
