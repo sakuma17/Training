@@ -8,25 +8,27 @@ public class BingoGame{
 		System.out.print("あなたの年齢を入力してください>");
 		int age=sc.nextInt();
 		Bingo b1=new Bingo(name,age);
-		if(b1.ageCheck()){
+		boolean isOk=b1.ageCheck();
+		if(isOk){
+			b1.coin=100;
 			System.out.println("残り枚数:"+b1.coin);
 		}else{
 			System.out.println("18歳未満の方は遊戯できません");
 			return;
 		}
-		while(true){
+		while(isOk){
 			if(b1.coin==0){
-				b1.gameOver();
-				return;
+				System.out.println("コインがなくなりました");
+				break;
 			}
 			System.out.print("BET枚数を入力。0で終了 1-"+b1.coin+'>');
 			int betCoin=sc.nextInt();
 			if(betCoin==0){
-				b1.gameOver();
-				return;
+				break;
 			}
 			b1.play(betCoin);
 		}
+		System.out.println("Game Over");
 	}
 }
 
@@ -34,12 +36,12 @@ class Bingo{
   final int BINGO_RATIO=12;
 	String userName;
 	int userAge;
-	int coin=100;
+	int coin;
 	public Bingo(String userName,int userAge){
 		//ここを記述
 		this.userName=userName;
 		this.userAge=userAge;
-		System.out.printf("こんにちは%s(%d)さん。%n",this.userName,this.userAge);
+		System.out.printf("こんにちは%s(%d歳)さん。%n",this.userName,this.userAge);
 	}
 	public boolean ageCheck(){
 	 //ここを記述
@@ -86,8 +88,5 @@ class Bingo{
 			}
 		}
 		return bingo;
-	}
-	public void gameOver(){
-		System.out.println("Game Over");
 	}
 }
