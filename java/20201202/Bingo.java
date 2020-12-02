@@ -71,7 +71,7 @@ public class Bingo{
 		}
 		return lines;
 	}
-	//斜めの判定
+	//斜めの組み合わせを返すメソッド
 	static int[][] crossLines(int[][] card){
 		int[][] lines=new int[2][card.length];
 		for(int i=0;i<lines.length;i++){
