@@ -24,6 +24,7 @@ public class BookApp{
 					break;
 				case 3:
 					System.out.print("書き込む内容を入力してください>");
+					sc.nextLine();
 					String str=sc.nextLine();
 					notebook.write(str);
 					break;
