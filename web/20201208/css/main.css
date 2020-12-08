@@ -1,0 +1,15 @@
+div{
+	width:960px;
+	height:500px;
+	margin:0 auto;
+	background-color:#eee;
+	display:flex;
+	justify-content:space-around;
+	align-items:center;
+	text-align:center;
+}
+img{
+	width:200px;
+	height:200px;
+	border-radius:50%;
+}
