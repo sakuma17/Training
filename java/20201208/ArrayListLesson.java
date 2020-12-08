@@ -20,14 +20,14 @@ public class ArrayListLesson{
 		System.out.println(names.size());//2
 		names.add(0,"John");//先頭に挿入
 		names.set(2,"Ringo");//index2を書き換え
-		if(names.isEmpty()){
-			System.out.println("要素はありません");
-		}
 		if(names.contains("Paul")){
 			System.out.println("Paulを含みます");
 		}
 		System.out.println("Paulのインデックスは"+names.indexOf("Paul"));
 		names.clear();//全て削除
+		if(names.isEmpty()){
+			System.out.println("要素はありません");
+		}
 
 		ArrayList<Integer> list=new ArrayList<>();
 		list.add(10);
@@ -41,6 +41,6 @@ public class ArrayListLesson{
 		for(String i:list2){
 			System.out.println(i);
 		}
-		list2.add("George");//error
+		//list2.add("George");←error
 	}
 }
