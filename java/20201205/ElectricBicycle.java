@@ -1,6 +1,7 @@
 public class ElectricBicycle extends Bicycle{
 	int battery;
 	static final int MAX=10;
+	static final int MIN=0;
 	public ElectricBicycle(){
 		this.type="電動自転車";
 		this.wheelSize=24;
@@ -14,7 +15,9 @@ public class ElectricBicycle extends Bicycle{
 		}else{
 			System.out.println("坂道だってラクラクです");
 		}
-		this.battery-=5;
+		if(this.battery>0){
+			this.battery-=5;
+		}
 	}
 	public void batteryCharge(){
 		System.out.println("バッテリーを充電しました");
