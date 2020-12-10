@@ -11,7 +11,8 @@ public class VendingMachineApp{
 			switch(select){
 				case 1:
 					System.out.print("投入金額する金額を入力してください>");
-					int money1=sc.nextInt();
+					int money=sc.nextInt();
+					int money1=w1.getMoney()>money? money:w1.getMoney();
 					w1.takeOutMoney(money1);
 					vm1.insertCoins(money1);
 					break;
@@ -19,6 +20,10 @@ public class VendingMachineApp{
 					vm1.purchase();
 					break;
 				case 3:
+					if(vm1.getMoney()==0){
+						System.out.println("お釣りはありません。");
+						break;
+					}
 					w1.insertMoney(vm1.cancel());
 					break;
 				case 4:
@@ -29,8 +34,14 @@ public class VendingMachineApp{
 				case 5:
 					w1.display();
 					break;
-				default:
+				case 6:
+					if(vm1.getMoney()>0){
+						w1.insertMoney(vm1.cancel());
+					}
+					System.out.println("アプリケーションを終了します。");
 					return;
+				default:
+					break;
 			}
 		}
 	}//main
@@ -38,7 +49,6 @@ public class VendingMachineApp{
 
 class Wallet{
 	private int money;
-	static int totalCharge;
 	Wallet(int money){
 		setMoney(money);
 	}
@@ -62,10 +72,14 @@ class Wallet{
 }//wallet
 
 	class VM{
+		static int price=130;
 		private int money;
 		private int num;
 		VM(int num){
 			insertGoods(num);
+		}
+		public int getMoney(){
+			return this.money;
 		}
 		public void insertGoods(int num){
 			this.num+=num;
@@ -78,7 +92,7 @@ class Wallet{
 			showCoins();
 		}
 		public int cancel(){
-			System.out.println("残り金額を取り出しました。");
+			System.out.println("お釣りを取り出しました。");
 			int rMoney=this.money;
 			this.money=0;
 			return rMoney;
@@ -88,12 +102,13 @@ class Wallet{
 				System.out.println("品切れです。");
 				return;
 			}
-			if(this.money<100){
+			if(this.money<price){
 				System.out.println("投入金額が足りません。");
 				return;
 			}
-			this.money-=100;
+			this.money-=price;
 			this.num-=1;
 			System.out.println("商品を購入しました。");
+			this.showCoins();
 		}
 	}//VendingMachine
