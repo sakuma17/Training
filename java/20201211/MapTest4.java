@@ -23,7 +23,10 @@ public class MapTest4{
 			}
 		}
 		System.out.println("***結果***");
-		int n=50;
+		int n=0;
+		for(int i:map.keySet()){
+			n=i;
+		}
 		for(int i=1;i<=n;i++){
 			System.out.printf("%d(%d):",i,300*i);
 			if(map.containsKey(i)){
@@ -44,8 +47,16 @@ public class MapTest4{
 			}
 		}
 		ave=ave/500;
+		/*
+		int blankCount=0;
+		for(int i=1;i<=n;i++){
+			if(!map.containsKey(i)){
+				blankCount+=1;
+			}
+		}
+		System.out.println(map.size()+blankCount);
+		*/
 		System.out.printf("コンプ平均値:%d円%n",ave);
-		System.out.println(max);
 		System.out.printf("モード(最頻値):%d回(%d円)%n",mode,mode*300);
 	}
 }
