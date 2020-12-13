@@ -4,13 +4,14 @@ public class MapTest4{
 		Random rand=new Random();
 		Map<Integer,Integer>map=new TreeMap<>();
 		int compCount=0;
-		while(compCount<500){
-			int numCount=0;
+		int numCount=0;
+		final int TRIAL_NUM=500;
+		while(compCount<TRIAL_NUM){
+			numCount=0;
 			Set<Integer>dices=new HashSet<>();
 			while(true){
 				numCount++;
-				int num=rand.nextInt(6)+1;
-				dices.add(num);
+				dices.add(rand.nextInt(6)+1);
 				if(dices.size()==6){
 					if(!map.containsKey(numCount)){
 						map.put(numCount,1);
@@ -46,7 +47,7 @@ public class MapTest4{
 				mode=key;
 			}
 		}
-		ave=ave/500;
+		ave/=TRIAL_NUM;
 		/*
 		int blankCount=0;
 		for(int i=1;i<=n;i++){
