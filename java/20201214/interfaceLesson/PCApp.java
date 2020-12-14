@@ -15,20 +15,9 @@ public class PCApp{
 			System.out.print("0.アプリ実行,1.USBデバイス接続,2.終わり>");
 			int select=sc.nextInt();
 			switch(select){
-					switch(pc.execApp()){
-						case 0:
-							appList.get(pc.execApp()).doApp();
-							break;
-						case 1:
-							appList.get(pc.execApp()).doApp();
-							break;
-						case 2:
-							appList.get(pc.execApp()).doApp();
-							break;
-						default:
-							System.out.println("");
-							break;
-					}
+				case 0:
+					appList.get(pc.execApp()).doApp();
+					break;
 				case 1:
 					System.out.print("どのデバイスを接続しますか 0.マウス、1.メモリー、2.カード>");
 					int index=sc.nextInt();
@@ -37,7 +26,7 @@ public class PCApp{
 					pc.usb();
 					break;
 				default:
-					System.out.println("アプリケーションを終了します");
+					System.out.println("アプリケーションを終了します。");
 					return;
 			}
 		}

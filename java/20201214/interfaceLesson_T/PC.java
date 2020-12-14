@@ -1,12 +1,12 @@
 import java.util.*;
-public class PC2{
+public class PC{
 	private App currentApp;
 	private List<App> appList=new ArrayList<>();
-	private UsbConnectable device();
-	public PC2(){
+	private UsbConnectable device;
+	public PC(){
 		super();
 	}
-	public void addAppli(App2 app){
+	public void addAppli(App app){
 		this.appList.add(app);
 	}
 	public void selectApp(){
@@ -20,14 +20,15 @@ public class PC2{
 		Scanner sc=new Scanner(System.in);
 		System.out.print("index>");
 		int index=sc.nextInt();
+		//this.currentApp=appList.get(index);
 		this.setApp(appList.get(index));
 		this.execApp();
 	}
 	public void execApp(){
 		this.currentApp.doApp();
 	}
-	public void setApp(App2 app){
-		this.app=currentApp;
+	public void setApp(App app){
+		this.currentApp=app;
 	}
 	public void usb(){
 		this.device.usbConnect();
