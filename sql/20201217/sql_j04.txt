@@ -104,12 +104,29 @@ SELECT * FROM emps WHERE name NOT LIKE '%中%';
 SELECT * FROM sales WHERE s_date BETWEEN '2017-09-01' AND '2017-09-03';
 
 ●salesとempsを内部結合。売上を記録した人の名前を抽出。重複は除外すること。
+SELECT DISTINCT name FROM emps 
+JOIN sales
+ON emps.id=sales.emp_id;
 
 ●depsテーブル。idの1,2は本社ビル7F,3,4は本社ビル6F,その他は本社ビル5Fである。
 以下の項目名で取得せよ。部署名、所在地
+SELECT dep AS 部署名,
+CASE
+WHEN id<=2 THEN'本社ビル7F'
+WHEN id<=4 THEN'本社ビル6F'
+ELSE '本社ビル5F'
+END AS 所在地
+FROM deps;
 
 ●empsテーブル。全件抽出。ただし年齢が23歳以下の人には名前の前に(新)を付与すること。
 取得項目は名前、年齢
+
+SELECT name AS 名前,
+CASE
+WHEN age<=23 THEN concat('(新)',age)
+ELSE age
+END AS 年齢
+FROM emps;
 
 ●salesテーブル。sale昇順に並び替え。saleに1000を掛け３桁毎にカンマを挿入し末尾に円を付与したものを売上高とする。
 取得項目は日付、売上高
