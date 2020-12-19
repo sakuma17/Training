@@ -132,6 +132,7 @@ FROM emps;
 取得項目は日付、売上高
 
 ●salesテーブル。売上の合計、最大、最小、平均、データ数を表示する。
+SELECT sum(sale),max(sale),min(sale),avg(sale),count(sale) AS データ件数 FROM sales;
 
 ●salesテーブル。2017-09-03の日別売上を求めよ。項目名は日付、件数、日別売上とする。
 
