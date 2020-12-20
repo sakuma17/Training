@@ -98,25 +98,25 @@ SELECT DISTINCT genre FROM game_soft;
 SELECT * FROM game_soft WHERE genre LIKE '%アクション%';
 
 13.機種名毎に、使用できるソフトのpriceの合計を表示せよ 取得項目は機種名とsum(price)とする
-SELECT 機種名,sum(price)
+SELECT h.機種名,sum(s.price) AS'sum(price)'
 FROM game_soft AS s
 JOIN game_hard AS h
 ON s.hard_id=h.id
-GROUP BY hard_id;
+GROUP BY s.hard_id;
 
 14.機種名毎に、使用できるソフトのpriceの平均を表示せよ 取得項目は機種名とavg(price)とする
-SELECT 機種名,avg(price)
+SELECT h.機種名,avg(s.price) AS'avg(price)'
 FROM game_soft AS s
 JOIN game_hard AS h
 ON s.hard_id=h.id
-GROUP BY hard_id;
+GROUP BY s.hard_id;
 
 15.機種名が3DSで使用できるgame_softのデータを抽出せよ
 SELECT * 
 FROM game_soft AS s
 JOIN game_hard AS h
 ON s.hard_id=h.id
-WHERE 機種名='3DS';
+WHERE h.機種名='3DS';
 
 16.titleの文字数を表示せよ
 SELECT title,char_length(title) AS length FROM game_soft;
