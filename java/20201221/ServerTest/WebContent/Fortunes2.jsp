@@ -5,14 +5,15 @@
 	String[] fortunes={"凶","小吉","中吉","大吉"};
 	int index=new java.util.Random().nextInt(4);
 	String str=fortunes[index];
+	String deco="f"+index;
 %>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="fortunes.css">
+<link rel="stylesheet" href="css/fortunes.css">
 <title>今日の運勢</title>
 </head>
 <body>
-	<p class=<%=index %>>あなたの運勢は<%=str%>です</p>
+	<p class="<%=deco%>">あなたの運勢は<%=str%>です</p>
 </body>
 </html>

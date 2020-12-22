@@ -1,16 +1,17 @@
 @charset "UTF-8";
 
-.1{
+.f0{
 	font-size:10px;
 	color:blue;
 }
-.2{
-	font-size:50px;
+.f1{
+	font-size:20px;
 	color:red;
 }
-.3{
-	font-size:100px;
+.f2{
+	font-size:30px;
 }
-.4{
-	size:1000px;
+.f3{
+	font-size:60px;
+	color:green;
 }
