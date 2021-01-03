@@ -62,6 +62,7 @@ SELECT * FROM members WHERE age>25 OR updated <='2015-01-15';
 
 //BETWEEN(端の値含む)
 SELECT * FROM members WHERE updated BETWEEN '2015-01-15' AND '2015-02-15';
+
 //IN　中に含まれるデータを抽出 この場合、営業部または人事部に含まれる人を抽出
 SELECT * FROM members WHERE depart IN('営業部','人事部');
 
@@ -72,23 +73,29 @@ SELECT * FROM members WHERE updated IS NOT NULL;
 //あいまい検索 %は0文字以上を表す
 //鈴木で始まる
 SELECT * FROM members WHERE name LIKE '鈴木%';
+
 //木を含む
 SELECT * FROM members WHERE name LIKE '%木%';
+
 //田で終わる
 SELECT * FROM members WHERE name LIKE '%田';
+
 //含まれない この場合、北が含まれない
 SELECT FROM members WHERE name NOT LIKE '%北%';
 
 //ORDER BY 並び変え
 //降順DESC 昇順は何も書かない、またはASC
 SELECT * FROM members ORDER BY age DESC;
+
 //updatedがnullでないデータを年齢昇順 ※WHERE句が先
 SELECT * FROM members WHERE updated IS NOT NULL ORDER BY age ASC;
+
 //ORDER BY 複数指定
 SELECT * FROM members ORDER BY age DESC,name ASC;
 
 //LIMIT 件数制限(LIMITはMYSQL限定)
 SELECT * FROM members ORDER BY age DESC LIMIT 3;
+
 //LIMITと合わせてOFFSET指定
 //2番目に年齢の高い人から3人取得
 SELECT * FROM members ORDER BY age DESC LIMIT 3 OFFSET 1;
