@@ -26,9 +26,16 @@ src
 ServletTest.java 実行
 
 
+継承してクラスを作る時
+スーパークラスからのコンストラクタ
+model.Monster
+パッケ名.クラス名
 
+<%=import ="パッケ名.*"%>
 
+ファイル>インポート>一般>該当フォルダ
 
+変数名 右クリ>リファクタリング>名前変更
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
