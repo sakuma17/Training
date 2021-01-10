@@ -26,7 +26,7 @@ CREATE TABLE emps(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
 	age INT,
-	dep_id INt
+	dep_id INT
 );
 
 ●empsテーブルに以下のデータを挿入する。(コピペしてよい)
@@ -93,10 +93,10 @@ SELECT * FROM sales ORDER BY sale DESC;
 
 ●empsのデータを年齢降順に抽出せよ。取得項目は、名前、年齢とする。
 SELECT name AS 名前,age AS 年齢
-FROM emps ORDER
-BY age DESC;
+FROM emps
+ORDER BY age DESC;
 
-●empsテーブル。年齢が30以上でdep_idが４でないデータを抽出。
+●empsテーブル。年齢が30以上でdep_idが4でないデータを抽出。
 SELECT * FROM emps
 WHERE age>=30 AND dep_id<>4;
 
@@ -123,12 +123,11 @@ ON s.emp_id=e.id;
 以下の項目名で取得せよ。部署名、所在地
 SELECT dep AS 部署名,
 CASE
-WHEN id<=2 THEN'本社ビル7F'
-WHEN id<=4 THEN'本社ビル6F'
+WHEN id IN(1,2) THEN'本社ビル7F'
+WHEN id IN(3,4) THEN'本社ビル6F'
 ELSE '本社ビル5F'
 END AS 所在地
 FROM deps;
-//id IN(1,2) THEN~の方がわかりやすい
 
 ●empsテーブル。全件抽出。ただし年齢が23歳以下の人には名前の前に(新)を付与すること。
 取得項目は名前、年齢
@@ -152,10 +151,6 @@ SELECT sum(sale),max(sale),min(sale),
 avg(sale),count(*) FROM sales;
 
 ●salesテーブル。2017-09-03の日別売上を求めよ。項目名は日付、件数、日別売上とする。
-SELECT s_date AS 日付,count(*) AS 件数,
-sum(sale) AS 日別売上 FROM sales WHERE s_date='2017-09-03';
-
-//Teacher's answer
 SELECT s_date AS 日付,
 count(*) AS 件数,
 sum(sale) AS 日別売上 

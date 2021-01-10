@@ -1,5 +1,5 @@
 データベース作成
-CREATE DATABASE myapp;
+CREATE DATABASE myapp
 DEFAULT CHARSET utf8;
 
 データベース削除
